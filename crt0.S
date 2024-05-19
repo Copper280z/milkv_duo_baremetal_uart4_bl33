@@ -1,19 +1,22 @@
 
 ; .section .text.unlikely
-.section .bl33magic
-/* BL33 information */
-.balign 4
-.word 0x33334c42  /* b'BL33' */
-.word 0xdeadbeea  /* CKSUM */
-.word 0xdeadbeeb  /* SIZE */
-.quad 0x80200000  /* RUNADDR */
-.word 0xdeadbeec
-.balign 4
-.balign 4
+.section .text.magic
+_magic:
+    /* BL33 information */
+    j _start
+    .balign 4
+    .word 0x33334c42  /* b'BL33' */
+    .word 0xdeadbeea  /* CKSUM */
+    .word 0xdeadbeeb  /* SIZE */
+    .quad 0x80200000  /* RUNADDR */
+    .word 0xdeadbeec
+    j _start
+    .balign 4
+
 /* Information end */
 
 .section .text.startup
-.global _start
+.globl _start
 _start:
     .cfi_startproc
     .cfi_undefined ra

@@ -32,10 +32,10 @@ all: $(NAME)
 
 $(NAME): $(SRC)
 	$(CC) -nostdlib -ffreestanding -nostartfiles -nodefaultlibs -march=rv64gc \
-		-mabi=lp64f -g -Wall -Wl,--gc-sections -Ttext=0x80200020\
-		-o $(NAME).elf $(SRC) -Wl,--verbose,-T,riscv64.ld
+		-mabi=lp64f -g -Wall\
+		-o $(NAME).elf $(SRC) -Wl,--verbose,-T,simple.ld
 	# $(CC) -nostdlib -fno-builtin -march=rv64gc -mabi=lp64f -g -Wall -Ttext=0x80200000 -o $(NAME).elf $(SRC) -Wl,--verbose
-	$(OC) -O binary $(NAME).elf $(NAME).bin
+	$(OC) --keep-section=.bl33magic -O binary $(NAME).elf $(NAME).bin
 	$(OD) -s -d $(NAME).elf > $(NAME).txt
 	cp $(NAME).bin gen_fip/
 	cd gen_fip && ./run.sh cd -
