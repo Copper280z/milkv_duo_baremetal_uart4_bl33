@@ -22,7 +22,7 @@ SECTIONS
   }
   .note.gnu.build-id  : { *(.note.gnu.build-id) }
   .rodata : { *(.rodata) }
-  . = 0x8000000;
+  /* . = 0x8000000; */
   .data : { *(.data) }
   .sdata : { *(.sdata) }
   .debug : { *(.debug) }

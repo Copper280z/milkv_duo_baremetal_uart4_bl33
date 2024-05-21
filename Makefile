@@ -24,7 +24,7 @@ OD		:= $(CROSS_COMPILE)objdump
 
 SRCex		:= uart4_bl33.S
 # SRC		:= uart4_bl33.S
-SRC		:= main.c crt0.S uart_spam.S
+SRC		:= main.c crt0.S uart.c
 
 
 .PHONY: all clean

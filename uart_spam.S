@@ -126,7 +126,7 @@ banner_0:
 	.asciz "UART0: =======Milkv-duo=======\r\n"
 	.word 0x0
 banner_1: 
-	.asciz "UART0: Hello Milkv-duo!\r\n"
+	.asciz "UART0: Hello Milkv-duo, from C!\r\n"
 	.word 0x0
 banner_2:
 	.asciz "UART0: Error looping!\r\n"
@@ -135,5 +135,5 @@ uart4_banner_0:
 	.asciz "UART4: =======Milkv-duo=======\r\n"
 	.word 0x0
 uart4_banner_1: 
-	.asciz "UART4: Hello Milkv-duo!\r\n"
+	.asciz "UART4: Hello Milkv-duo!, from C!\r\n"
 	.word 0x0
